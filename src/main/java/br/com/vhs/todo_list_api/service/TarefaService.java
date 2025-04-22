@@ -25,10 +25,18 @@ public class TarefaService {
 	/**
 	 * Cria uma nova tarefa no banco de dados.
 	 */
-	public Tarefa criarTarefa(TarefaDTO tarefaDTO) {
-		Tarefa tarefa = new Tarefa(tarefaDTO.getDescricao());
-		return tarefaRepository.save(tarefa);
+	public TarefaDTO criarTarefa(TarefaDTO tarefaDTO) {
+	    // Criando uma nova tarefa com base no DTO
+	    Tarefa tarefa = new Tarefa(tarefaDTO.getDescricao());
+	    
+	    // Salvando a tarefa no banco
+	    tarefa = tarefaRepository.save(tarefa);
+	    
+	    // Retornando o TarefaDTO com os dados da tarefa criada
+	    return new TarefaDTO(tarefa.getId(), tarefa.getDescricao(), tarefa.isStatus(),
+	            tarefa.getDataCriacao(), tarefa.getDataConclusao());
 	}
+
 
 	/**
 	 * Lista todas as tarefas no banco de dados.
