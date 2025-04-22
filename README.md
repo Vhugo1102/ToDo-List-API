@@ -19,7 +19,6 @@ Este é um projeto de uma API REST para gerenciamento de tarefas, desenvolvido c
 - Spring Web
 - Spring Data JPA
 - H2 Database
-- Swagger (OpenAPI)
 - Maven
 
 ---
